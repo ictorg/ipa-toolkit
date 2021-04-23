@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  ipa-toolkit-app: &app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 3
+        INSTALL_NODE: "true"
+        NODE_VERSION: "lts/*"
+    volumes:
+      - ..:/workspace
+      - bundle:/usr/local/bundle
+    command: sleep infinity
+    ports:
+      - '3000:3000'
+      - '3035:3035'
+    depends_on:
+      - ipa-toolkit-postgres
+      - ipa-toolkit-mailcatcher
+    environment:
+      LANG: C.UTF-8
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      WEBPACKER_DEV_SERVER_PUBLIC: 0.0.0.0:3035
+      RAILS_ENV: development
+      DATABASE_URL: "postgresql://postgres@ipa-toolkit-postgres/ipa-toolkit_development"
+
+  ipa-toolkit-postgres:
+    image: postgres:13.2-alpine
+    volumes:
+      - database:/var/lib/postgresql/data
+
+  ipa-toolkit-mailcatcher:
+    image: tophfr/mailcatcher:0.7.1
+    ports:
+     - '3080:80'
+
+volumes:
+  bundle:
+  database:
