@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.163.1/containers/ruby
 {
-	"name": "IPA-Toolkit",
+	"name": "IPA-Toolkit (backend)",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "ipa-toolkit-app",
+  "service": "ipa-toolkit-backend",
   "workspaceFolder": "/workspace",
 
 	// Set *default* container specific settings.json values on container create.
