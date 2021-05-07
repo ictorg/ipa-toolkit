@@ -24,3 +24,5 @@ jobs:
         with:
           push: true
           tags: ghcr.io/ictorg/ipa-toolkit-backend:latest
+          cache-from: type=registry,ref=ghcr.io/ictorg/ipa-toolkit-backend:latest
+          cache-to: type=inline
