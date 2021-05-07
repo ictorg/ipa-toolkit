@@ -14,12 +14,12 @@ services:
       - bundle:/usr/local/bundle
     command: sleep infinity
     ports:
-      - '3000:3000'
       - '3035:3035'
     depends_on:
       - ipa-toolkit-backend-postgres
       - ipa-toolkit-backend-mailcatcher
     environment:
+      API_ORIGIN: localhost:3001
       LANG: C.UTF-8
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
       WEBPACKER_DEV_SERVER_PUBLIC: 0.0.0.0:3035

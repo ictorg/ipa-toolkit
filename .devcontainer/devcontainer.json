@@ -1,20 +1,20 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.163.1/containers/ruby
 {
-	"name": "IPA-Toolkit (backend)",
+  "name": "IPA-Toolkit (backend)",
   "dockerComposeFile": "docker-compose.yml",
   "service": "ipa-toolkit-backend",
   "workspaceFolder": "/workspace",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
+  // Set *default* container specific settings.json values on container create.
+  // "settings": { 
+  //   "terminal.integrated.shell.linux": "/bin/bash"
+  // },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"rebornix.Ruby",
-		"castwide.solargraph",
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "rebornix.Ruby",
+    "castwide.solargraph",
     "streetsidesoftware.code-spell-checker",
     "streetsidesoftware.code-spell-checker-german",
     "esbenp.prettier-vscode",
@@ -24,16 +24,16 @@
     "mgmcdermott.vscode-language-babel",
     "dbaeumer.vscode-eslint",
     "jpoissonnier.vscode-styled-components",
-		"wingrunr21.vscode-ruby"
-	],
-	
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+    "wingrunr21.vscode-ruby"
+  ],
+  
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "ruby --version",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "ruby --version",
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode"
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode"
 
 }
