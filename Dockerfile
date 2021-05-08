@@ -47,5 +47,5 @@ RUN bundle config --local without 'development test' && \
   bundle install -j4 --retry 3 && \
   bundle clean --force
 
-EXPOSE 3000
-CMD ["bin/rails", "s",  "-p",  "3000", "-b", "0.0.0.0"]
+EXPOSE 80
+CMD ["bin/rails", "s",  "-p",  "80", "-b", "0.0.0.0"]

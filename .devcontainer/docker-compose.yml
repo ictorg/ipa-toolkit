@@ -2,6 +2,7 @@ version: '3'
 
 services:
   ipa-toolkit-backend:
+    container_name: ipa-toolkit-backend
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,30 +14,40 @@ services:
       - ..:/workspace
       - bundle:/usr/local/bundle
     command: sleep infinity
-    ports:
-      - '3035:3035'
     depends_on:
       - ipa-toolkit-backend-postgres
       - ipa-toolkit-backend-mailcatcher
     environment:
       API_ORIGIN: localhost:3001
       LANG: C.UTF-8
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-      WEBPACKER_DEV_SERVER_PUBLIC: 0.0.0.0:3035
       RAILS_ENV: development
       DATABASE_URL: "postgresql://postgres:secret@ipa-toolkit-backend-postgres/ipa-toolkit_development"
+    networks:
+      - ipa-toolkit-network
+      - ipa-toolkit-backend-network
 
   ipa-toolkit-backend-postgres:
+    container_name: ipa-toolkit-backend-postgres
     image: postgres:13.2-alpine
     volumes:
       - database:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: "secret"
+    networks:
+      - ipa-toolkit-backend-network
 
   ipa-toolkit-backend-mailcatcher:
+    container_name: ipa-toolkit-backend-mailcatcher
     image: tophfr/mailcatcher:0.7.1
     ports:
      - '3080:80'
+    networks:
+      - ipa-toolkit-backend-network
+
+networks:
+  ipa-toolkit-backend-network:
+  ipa-toolkit-network:
+    external: true
 
 volumes:
   bundle:
