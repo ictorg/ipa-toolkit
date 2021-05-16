@@ -1,4 +1,4 @@
 module Resolvers
-  class BaseResolver < Graphql::Schema::Resolver
+  class BaseResolver < GraphQL::Schema::Resolver
   end
 end
