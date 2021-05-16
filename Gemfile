@@ -42,3 +42,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "graphql", "~> 1.12"
 gem "graphql_devise", "~> 0.15.0"
+
+gem "faraday", "~> 1.4"
+
+gem "config", "~> 3.1"

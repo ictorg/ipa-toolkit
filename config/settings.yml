@@ -1,0 +1,5 @@
+pkorg:
+  cookies:
+    session_token: 'PHPSESSID'
+  endpoints:
+    session_user: 'meine-daten?api=json'

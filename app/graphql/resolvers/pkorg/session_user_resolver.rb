@@ -3,9 +3,11 @@ module Resolvers
     type Types::Pkorg::SessionUserType, null: true
 
     def resolve
-      {
-        email: 'hoho'
-      }
+      ::Pkorg::SessionUserService.new(
+        object[:session_token],
+        object[:base_url],
+        object[:user_agent]
+      ).retrieve
     end
   end
 end
