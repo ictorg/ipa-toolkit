@@ -9,7 +9,6 @@ class Pkorg::EvaluationService < ApplicationService
   end
 
   def retrieve
-    debugger
     response = Faraday.get(URI.join(@base_url, @evaluation_path)) do |request|
       request.headers['Cookie'] = "#{Settings.pkorg.cookies.session_token}=#{@session_token}"
       request.headers['User-Agent'] = @user_agent
