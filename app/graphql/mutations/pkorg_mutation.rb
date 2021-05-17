@@ -1,6 +1,6 @@
-module Resolvers
-  class PkorgResolver < BaseResolver
-    type Types::PkorgQueryType, null: true
+module Mutations
+  class PkorgMutation < BaseMutation
+    type Types::PkorgMutationType
 
     argument :session_token, String, required: true
     argument :base_url, String, required: true
