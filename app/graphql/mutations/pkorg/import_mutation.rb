@@ -5,9 +5,12 @@ module Mutations
     argument :dossiers, [Types::Pkorg::DossierInputType], required: true
 
     def resolve(dossiers:)
-      {
-        'import_count': 0
-      }
+      ::Pkorg::ImportService.new(
+        object[:session_token],
+        object[:base_url],
+        object[:user_agent],
+        dossiers
+      ).import
     end
   end
 end

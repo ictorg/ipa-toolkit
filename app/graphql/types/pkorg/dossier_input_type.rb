@@ -18,5 +18,6 @@ module Types
     argument :mark_deduction, Boolean, required: false
     argument :final_mark, String, required: false
     argument :submitted_mark, String, required: false
+    argument :dossier_path, String, required: false
   end
 end
