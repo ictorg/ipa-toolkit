@@ -2,6 +2,7 @@ require 'faraday'
 
 class Pkorg::ImportService < ApplicationService
   def initialize(session_token, base_url, user_agent, dossiers)
+    super()
     @session_token = session_token
     @base_url = base_url
     @user_agent = user_agent
