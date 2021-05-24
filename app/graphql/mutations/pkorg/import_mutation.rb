@@ -7,7 +7,6 @@ module Mutations
     def resolve(dossiers:)
       ::Pkorg::ImportService.new(
         object[:session_token],
-        object[:base_url],
         object[:user_agent],
         dossiers
       ).import

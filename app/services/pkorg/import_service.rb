@@ -1,22 +1,39 @@
 require 'faraday'
 
 class Pkorg::ImportService < ApplicationService
-  def initialize(session_token, base_url, user_agent, dossiers)
+  DOSSIER_MAPPINGS = {
+    affiliation: :affiliation_attributes,
+    candidate: :candidate_attributes,
+    primary_expert: :primary_expert_attributes,
+    secondary_expert: :secondary_expert_attributes,
+    company_contact: :company_contact_attributes
+  }.freeze
+
+  def initialize(session_token, user_agent, dossiers)
     super()
     @session_token = session_token
-    @base_url = base_url
     @user_agent = user_agent
     @dossiers = dossiers
   end
 
   def import
-    response = Faraday.get(URI.join(@base_url, @evaluation_path)) do |request|
-      request.headers['Cookie'] = "#{Settings.pkorg.cookies.session_token}=#{@session_token}"
-      request.headers['User-Agent'] = @user_agent
+    @dossiers.each do |d|
+      dossier_path = d[:dossier_path]
+      parsed_dossier = d.to_h.except(:dossier_path).transform_keys { |key| DOSSIER_MAPPINGS[key] || key }
+      dossier = Dossier.new
+      dossier.affiliation = Affiliation.find_or_create_by(d[:affiliation].to_h)
+      dossier.candidate = Person.find_or_create_by(d[:candidate].to_h)
+      dossier.primary_expert = Person.find_or_create_by(d[:primary_expert].to_h)
+      dossier.secondary_expert = Person.find_or_create_by(d[:secondary_expert].to_h)
+      dossier.company_contact = Person.find_or_create_by(d[:company_contact].to_h)
+      dossier.assign_attributes(parsed_dossier)
+      dossier.save!
+
+      AttachDossierJob.perform_later(dossier.id, dossier_path, @session_token, @user_agent)
     end
-    debugger
+
     {
-      'result': response.body
+      'import_count': @dossiers.length
     }
   end
 end

@@ -46,3 +46,5 @@ gem "graphql_devise", "~> 0.15.0"
 gem "faraday", "~> 1.4"
 
 gem "config", "~> 3.1"
+
+gem "down", "~> 5.2"

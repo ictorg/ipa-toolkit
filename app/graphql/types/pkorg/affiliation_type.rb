@@ -5,4 +5,3 @@ module Types
     field :tenant_id, ID, null: false
   end
 end
-  
