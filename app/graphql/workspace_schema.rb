@@ -29,6 +29,7 @@ class WorkspaceSchema < GraphQL::Schema
   # Given a string UUID, find the object
   def self.object_from_id(id, query_ctx)
     return unless id.present?
+
     type_name, item_id = GraphQL::Schema::UniqueWithinType.decode(id)
     type = type_name.safe_constantize
     type&.find_by id: item_id

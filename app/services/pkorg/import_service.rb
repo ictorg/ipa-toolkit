@@ -20,7 +20,7 @@ class Pkorg::ImportService < ApplicationService
     @dossiers.each do |d|
       dossier_path = d[:dossier_path]
       parsed_dossier = d.to_h.except(:dossier_path).transform_keys { |key| DOSSIER_MAPPINGS[key] || key }
-      dossier = Dossier.new
+      dossier = Dossier.find_or_initialize_by(candidate_id: parsed_dossier[:candidate_attributes][:id])
       dossier.affiliation = Affiliation.find_or_create_by(d[:affiliation].to_h)
       dossier.candidate = Person.find_or_create_by(d[:candidate].to_h)
       dossier.primary_expert = Person.find_or_create_by(d[:primary_expert].to_h)
