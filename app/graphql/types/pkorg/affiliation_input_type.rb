@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module Types
-  class Pkorg::AffiliationInputType < Types::BaseInputObject
-    argument :id, Int, required: true
-    argument :tenant_name, String, required: true
+  module Pkorg
+    class AffiliationInputType < Types::BaseInputObject
+      argument :id, Int, required: true
+      argument :tenant_name, String, required: true
+    end
   end
 end

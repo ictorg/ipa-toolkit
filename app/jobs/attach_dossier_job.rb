@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AttachDossierJob < ApplicationJob
   queue_as :default
 
@@ -7,8 +9,8 @@ class AttachDossierJob < ApplicationJob
     dossier_file = Down.download(
       dossier_path,
       headers: {
-        "Cookie" => "#{Settings.pkorg.cookies.session_token}=#{session_token}",
-        "User-Agent" => user_agent
+        'Cookie' => "#{Settings.pkorg.cookies.session_token}=#{session_token}",
+        'User-Agent' => user_agent
       }
     )
 

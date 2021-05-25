@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Dossier < ApplicationRecord
   belongs_to :affiliation, class_name: 'Affiliation'
   belongs_to :candidate, class_name: 'Person'

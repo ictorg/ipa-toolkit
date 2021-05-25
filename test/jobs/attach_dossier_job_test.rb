@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class AttachDossierJobTest < ActiveJob::TestCase
   # test "the truth" do
