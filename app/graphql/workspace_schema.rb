@@ -3,7 +3,7 @@ class WorkspaceSchema < GraphQL::Schema
     query: Types::QueryType,
     mutation: Types::MutationType,
     resource_loaders: [
-      GraphqlDevise::ResourceLoader.new(User)
+      GraphqlDevise::ResourceLoader.new(User, only: %i[login logout])
     ]
   )
 
