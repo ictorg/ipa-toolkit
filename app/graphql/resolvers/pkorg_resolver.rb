@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 module Resolvers
+  class PkorgQueryType < Types::BaseObject
+    field :evaluation, resolver: Pkorg::EvaluationResolver
+    field :session_user, resolver: Pkorg::SessionUserResolver
+  end
+
   class PkorgResolver < BaseResolver
-    type Types::PkorgQueryType, null: true
+    type PkorgQueryType, null: true
 
     argument :session_token, String, required: true
     argument :base_url, String, required: true

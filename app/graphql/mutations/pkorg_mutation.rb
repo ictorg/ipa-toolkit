@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 module Mutations
+  class PkorgMutationType < Types::BaseObject
+    field :importDossiers, mutation: Pkorg::ImportMutation
+  end
+
   class PkorgMutation < BaseMutation
-    type Types::PkorgMutationType
+    type PkorgMutationType
 
     argument :session_token, String, required: true
     argument :base_url, String, required: true

@@ -7,5 +7,6 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     field :pkorg, resolver: Resolvers::PkorgResolver
+    field :users, resolver: Resolvers::UsersResolver
   end
 end
