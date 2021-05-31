@@ -3,11 +3,14 @@
 module Mutations
   class UserMutationType < Types::BaseObject
     field :createUser, mutation: Users::CreateUserMutation
+    field :deleteUser, mutation: Users::DeleteUserMutation
   end
 
   class UserMutation < BaseMutation
     type UserMutationType
 
-    def resolve; end
+    def resolve
+      {}
+    end
   end
 end

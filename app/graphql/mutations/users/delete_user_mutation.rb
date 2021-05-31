@@ -2,13 +2,14 @@
 
 module Mutations
   module Users
-    class CreateUserMutation < BaseMutation
+    class DeleteUserMutation < BaseMutation
       field :user, Types::UserType, null: false
 
-      argument :user, Types::Users::UserInputType, required: true
+      argument :id, Integer, required: true
 
-      def resolve(user:)
-        user = User.create!(user.to_h)
+      def resolve(id:)
+        user = User.find(id)
+        user.destroy
 
         {
           user: user

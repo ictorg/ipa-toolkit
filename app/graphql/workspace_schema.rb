@@ -36,4 +36,12 @@ class WorkspaceSchema < GraphQL::Schema
     type = type_name.safe_constantize
     type&.find_by id: item_id
   end
+
+  rescue_from(ActiveRecord::RecordNotFound) do |_err, _obj, _args, _ctx, field|
+    raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} not found"
+  end
+
+  rescue_from(ActiveRecord::RecordInvalid) do |err, _obj, _args, _ctx, field|
+    raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} is invalid: #{_err.message}"
+  end
 end
