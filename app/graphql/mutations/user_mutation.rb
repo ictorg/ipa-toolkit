@@ -3,6 +3,7 @@
 module Mutations
   class UserMutationType < Types::BaseObject
     field :createUser, mutation: Users::CreateUserMutation
+    field :updateUser, mutation: Users::UpdateUserMutation
     field :deleteUser, mutation: Users::DeleteUserMutation
   end
 

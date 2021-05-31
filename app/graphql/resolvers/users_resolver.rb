@@ -4,7 +4,11 @@ module Resolvers
   class UsersResolver < BaseResolver
     type [Types::UserType], null: true
 
-    def resolve
+    argument :id, Integer, required: false
+
+    def resolve(id: nil)
+      return [User.find(id)] if id
+
       User.all
     end
   end

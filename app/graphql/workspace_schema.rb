@@ -42,6 +42,6 @@ class WorkspaceSchema < GraphQL::Schema
   end
 
   rescue_from(ActiveRecord::RecordInvalid) do |err, _obj, _args, _ctx, field|
-    raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} is invalid: #{_err.message}"
+    raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} is invalid: #{err.message}"
   end
 end
