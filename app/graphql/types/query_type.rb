@@ -8,5 +8,6 @@ module Types
 
     field :pkorg, resolver: Resolvers::PkorgResolver
     field :users, resolver: Resolvers::UsersResolver
+    field :dossiers, resolver: Resolvers::DossiersResolver
   end
 end
