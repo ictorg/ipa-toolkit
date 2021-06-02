@@ -8,7 +8,7 @@ module Mutations
       argument :user, Types::Input::UserInputType, required: true
 
       def resolve(user:)
-        created_user = User.create!(user.to_h)
+        created_user = ::User.create!(user.to_h)
 
         {
           user: created_user

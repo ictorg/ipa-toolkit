@@ -9,7 +9,7 @@ module Mutations
       argument :user, Types::Input::UserInputType, required: true
 
       def resolve(id:, user:)
-        updated_user = User.find(id)
+        updated_user = ::User.find(id)
         updated_user.update!(user.to_h)
 
         {

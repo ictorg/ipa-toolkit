@@ -8,7 +8,7 @@ module Mutations
       argument :id, Integer, required: true
 
       def resolve(id:)
-        user = User.find(id)
+        user = ::User.find(id)
         user.destroy
 
         {
