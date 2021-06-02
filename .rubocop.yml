@@ -1,3 +1,15 @@
+require: 
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.0
+  Exclude:
+   - 'app/views/**/*'
+   - 'db/**/*'
+   - 'docs/**/*'
+   - 'vendor/bundle/**/*'
+
 Metrics/MethodLength:
   Max: 20
 
