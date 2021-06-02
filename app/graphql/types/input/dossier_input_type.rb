@@ -3,6 +3,7 @@
 module Types
   module Input
     class DossierInputType < Types::BaseInputObject
+      argument :id, Int, required: false
       argument :affiliation, AffiliationInputType, required: true
       argument :candidate, PersonInputType, required: true
       argument :primary_expert, PersonInputType, required: false

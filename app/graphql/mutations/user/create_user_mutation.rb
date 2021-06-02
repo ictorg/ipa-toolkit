@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  module Users
+  module User
     class CreateUserMutation < BaseMutation
       field :user, Types::Entity::UserType, null: false
 
