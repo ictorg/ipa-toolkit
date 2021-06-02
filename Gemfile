@@ -51,6 +51,6 @@ gem 'config', '~> 3.1'
 
 gem 'down', '~> 5.2'
 
-gem "rubocop-rails", "~> 2.10"
+gem 'rubocop-rails', '~> 2.10'
 
-gem "rubocop-performance", "~> 1.11"
+gem 'rubocop-performance', '~> 1.11'

@@ -20,7 +20,7 @@ class WorkspaceSchema < GraphQL::Schema
   def self.resolve_type(_abstract_type, _obj, _ctx)
     type_class = "::Types::#{object.class}Type".safe_constantize
 
-    raise ArgumentError, "Cannot resolve type for class #{object.class.name}" unless type_class.present?
+    raise ArgumentError, "Cannot resolve type for class #{object.class.name}" if type_class.blank?
 
     type_class
   end
@@ -34,7 +34,7 @@ class WorkspaceSchema < GraphQL::Schema
 
   # Given a string UUID, find the object
   def self.object_from_id(id, _query_ctx)
-    return unless id.present?
+    return if id.blank?
 
     type_name, item_id = GraphQL::Schema::UniqueWithinType.decode(id)
     type = type_name.safe_constantize
