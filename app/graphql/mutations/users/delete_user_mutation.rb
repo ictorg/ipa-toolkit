@@ -3,7 +3,7 @@
 module Mutations
   module Users
     class DeleteUserMutation < BaseMutation
-      field :user, Types::UserType, null: false
+      field :user, Types::Entity::UserType, null: false
 
       argument :id, Integer, required: true
 

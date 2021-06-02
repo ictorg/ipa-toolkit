@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  module Pkorg
+  module Input
     class PersonInputType < Types::BaseInputObject
       argument :id, Int, required: true
       argument :forename, String, required: true

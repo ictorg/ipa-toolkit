@@ -3,7 +3,7 @@
 module Resolvers
   module Pkorg
     class SessionUserResolver < BaseResolver
-      type Types::Pkorg::SessionUserType, null: true
+      type Types::Entity::SessionUserType, null: true
 
       def resolve
         ::Pkorg::SessionUserService.new(

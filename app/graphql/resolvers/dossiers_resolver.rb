@@ -2,7 +2,7 @@
 
 module Resolvers
   class DossiersResolver < BaseResolver
-    type [Types::DossierType], null: true
+    type [Types::Entity::DossierType], null: true
 
     argument :id, Integer, required: false
 

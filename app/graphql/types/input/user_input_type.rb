@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  module Users
+  module Input
     class UserInputType < Types::BaseInputObject
       argument :id, Int, required: false
       argument :email, String, required: true

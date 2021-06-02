@@ -2,7 +2,7 @@
 
 module Resolvers
   class UsersResolver < BaseResolver
-    type [Types::UserType], null: true
+    type [Types::Entity::UserType], null: true
 
     argument :id, Integer, required: false
 

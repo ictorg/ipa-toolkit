@@ -13,7 +13,7 @@ module Types
                 'Anonymous class should declare a `graphql_name`'
         end
 
-        name.split('::')[1..].join.sub(/Type\Z/, '')
+        name.split('::').last.sub(/Type\Z/, '')
       end
     end
   end

@@ -3,9 +3,9 @@
 module Mutations
   module Users
     class CreateUserMutation < BaseMutation
-      field :user, Types::UserType, null: false
+      field :user, Types::Entity::UserType, null: false
 
-      argument :user, Types::Users::UserInputType, required: true
+      argument :user, Types::Input::UserInputType, required: true
 
       def resolve(user:)
         created_user = User.create!(user.to_h)

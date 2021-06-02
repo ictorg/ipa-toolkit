@@ -3,10 +3,10 @@
 module Mutations
   module Users
     class UpdateUserMutation < BaseMutation
-      field :user, Types::UserType, null: false
+      field :user, Types::Entity::UserType, null: false
 
       argument :id, Integer, required: true
-      argument :user, Types::Users::UserInputType, required: true
+      argument :user, Types::Input::UserInputType, required: true
 
       def resolve(id:, user:)
         updated_user = User.find(id)

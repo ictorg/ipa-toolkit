@@ -7,6 +7,8 @@ class Dossier < ApplicationRecord
   belongs_to :secondary_expert, class_name: 'Person'
   belongs_to :company_contact, class_name: 'Person'
 
+  has_many :verifications
+
   has_one_attached :dossier_file
 
   accepts_nested_attributes_for :affiliation, :candidate, :primary_expert, :secondary_expert, :company_contact

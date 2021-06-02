@@ -3,7 +3,7 @@
 module Resolvers
   module Pkorg
     class EvaluationResolver < BaseResolver
-      type Types::Pkorg::EvaluationType, null: true
+      type Types::Entity::EvaluationType, null: true
 
       argument :evaluation_path, String, required: true
 

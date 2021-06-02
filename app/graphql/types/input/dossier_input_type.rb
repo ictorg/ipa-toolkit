@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Types
-  module Pkorg
+  module Input
     class DossierInputType < Types::BaseInputObject
-      argument :affiliation, Pkorg::AffiliationInputType, required: true
-      argument :candidate, Pkorg::PersonInputType, required: true
-      argument :primary_expert, Pkorg::PersonInputType, required: false
-      argument :secondary_expert, Pkorg::PersonInputType, required: false
-      argument :company_contact, Pkorg::PersonInputType, required: false
+      argument :affiliation, AffiliationInputType, required: true
+      argument :candidate, PersonInputType, required: true
+      argument :primary_expert, PersonInputType, required: false
+      argument :secondary_expert, PersonInputType, required: false
+      argument :company_contact, PersonInputType, required: false
       argument :company_points_a, String, required: false
       argument :company_points_b, String, required: false
       argument :company_mark_a, String, required: false
