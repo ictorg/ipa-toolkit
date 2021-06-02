@@ -1,1 +1,8 @@
-Joho
+<p>
+  Lieber Experte
+</p>
+<p>
+  Bitte kontrolliere die IPA von <%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %>. Das Dossier kann hier heruntergeladen werden:
+  <br />
+  <%= rails_blob_url(@dossier.dossier_file, disposition: "attachment") %>
+</p>

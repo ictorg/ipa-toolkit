@@ -19,6 +19,7 @@ services:
       - ipa-toolkit-backend-mailcatcher
     environment:
       API_ORIGIN: localhost:3001
+      DEFAULT_HOST: localhost:3000
       LANG: C.UTF-8
       RAILS_ENV: development
       DATABASE_URL: "postgresql://postgres:secret@ipa-toolkit-backend-postgres/ipa-toolkit_development"

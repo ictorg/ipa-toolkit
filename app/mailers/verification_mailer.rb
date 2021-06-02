@@ -3,6 +3,7 @@
 class VerificationMailer < ApplicationMailer
   def invite
     verification = params[:verification]
-    mail(to: verification.email, subject: 'Invitation')
+    @dossier = verification.dossier
+    mail(to: verification.email, subject: 'Einladung zur Verifizierung')
   end
 end
