@@ -2,6 +2,6 @@
 
 class ApplicationMailer < ActionMailer::Base
   append_view_path Rails.root.join('app/views/mailers')
-  default from: 'from@example.com'
+  default from: "\"IPA Toolkit\" <#{ENV['SYSTEM_EMAIL_ADDRESS']}>"
   layout 'mailer'
 end
