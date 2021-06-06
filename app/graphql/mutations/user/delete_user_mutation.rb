@@ -9,6 +9,10 @@ module Mutations
 
       def resolve(id:)
         user = ::User.find(id)
+
+        # Prevent suicide
+        raise GraphQL::ExecutionError, 'Can\'t commit suicide.' if user.email == context[:current_resource].email
+
         user.destroy
 
         {
