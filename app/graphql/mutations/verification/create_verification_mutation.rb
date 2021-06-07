@@ -8,12 +8,14 @@ module Mutations
       argument :verification, Types::Input::VerificationInputType, required: true
 
       def resolve(verification:)
-        created_verification = ::Verification.create!(verification.to_h)
+        new_verification = ::Verification.new(verification.to_h)
+        new_verification.token = SecureRandom.hex(32)
+        new_verification.save!
 
-        VerificationMailer.with(verification: created_verification).invite.deliver_now
+        VerificationMailer.with(verification: new_verification).invite.deliver_now
 
         {
-          verification: created_verification
+          verification: new_verification
         }
       end
     end

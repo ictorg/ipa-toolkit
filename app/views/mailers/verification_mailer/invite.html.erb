@@ -6,3 +6,13 @@
   <br />
   <%= rails_blob_url(@dossier.dossier_file, disposition: "attachment") %>
 </p>
+<p>
+  Nachdem Abschluss der Kontrolle ist diese im folgenden Formular zu bestätigen:
+  <br />
+  <%= "https://#{ENV.fetch('API_ORIGIN', 'localhost:3000')}/verification/result/#{@verification.token}"%>
+</p>
+<p>
+  Vielen Dank und freundliche Grüsse
+
+  dein IPA Toolkit
+</p>

@@ -3,3 +3,11 @@ Lieber Experte
 Bitte kontrolliere die IPA von <%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %>. Das Dossier kann hier heruntergeladen werden:
 
 <%= rails_blob_url(@dossier.dossier_file, disposition: "attachment") %>
+
+Nachdem Abschluss der Kontrolle ist diese im folgenden Formular zu bestätigen:
+
+<%= "https://#{ENV.fetch('API_ORIGIN', 'localhost:3000')}/verification/result/#{@verification.token}"%>
+
+Vielen Dank und freundliche Grüsse
+
+dein IPA Toolkit
