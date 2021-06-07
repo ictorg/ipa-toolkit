@@ -23,6 +23,7 @@ services:
       LANG: C.UTF-8
       RAILS_ENV: development
       DATABASE_URL: "postgresql://postgres:secret@ipa-toolkit-backend-postgres/ipa-toolkit_development"
+      SYSTEM_EMAIL_ADDRESS: system@ipa-toolkit
     networks:
       - ipa-toolkit-network
       - ipa-toolkit-backend-network
