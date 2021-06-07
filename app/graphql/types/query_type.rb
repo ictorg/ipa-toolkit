@@ -6,6 +6,7 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
+    field :verification_results, resolver: Resolvers::VerificationResultsResolver, authenticate: false
     field :pkorg, resolver: Resolvers::PkorgResolver
     field :users, resolver: Resolvers::UsersResolver
     field :dossiers, resolver: Resolvers::DossiersResolver
