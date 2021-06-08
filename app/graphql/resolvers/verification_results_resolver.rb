@@ -2,7 +2,7 @@
 
 module Resolvers
   class VerificationResultsResolver < BaseResolver
-    type [Types::Entity::VerificationType], null: true
+    type [Types::Entity::VerificationResultType], null: true
 
     argument :token, String, required: true
 
