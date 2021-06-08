@@ -4,7 +4,9 @@
     "ruby.useLanguageServer": true, // use the internal language server (see below)
     "ruby.lint": {
     "rubocop": {
-        "useBundler": true // enable rubocop via bundler
+        "useBundler": true, // enable rubocop via bundler
+        "rails": true,
+        "except": ["db/schema.rb"]
     },
     "reek": {
         "useBundler": true // enable reek via bundler
