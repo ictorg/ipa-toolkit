@@ -5,8 +5,6 @@ class CreateParticipants < ActiveRecord::Migration[6.1]
       t.string :surname, null: false
       t.string :email, null: false
 
-      t.references :conference, index: true, foreign_key: { to_table: :conferences }
-
       t.timestamps
     end
   end

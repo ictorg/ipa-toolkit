@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_132023) do
+ActiveRecord::Schema.define(version: 2021_06_11_084646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 2021_06_07_132023) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "conferences", force: :cascade do |t|
+    t.string "password"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "dossiers", force: :cascade do |t|
     t.bigint "affiliation_id"
     t.bigint "candidate_id"
@@ -75,6 +82,15 @@ ActiveRecord::Schema.define(version: 2021_06_07_132023) do
     t.index ["company_contact_id"], name: "index_dossiers_on_company_contact_id"
     t.index ["primary_expert_id"], name: "index_dossiers_on_primary_expert_id"
     t.index ["secondary_expert_id"], name: "index_dossiers_on_secondary_expert_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.string "forename", null: false
+    t.string "surname", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "conference_id"
+    t.index ["conference_id"], name: "index_participants_on_conference_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -115,7 +131,9 @@ ActiveRecord::Schema.define(version: 2021_06_07_132023) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "token", null: false
+    t.bigint "participant_id"
     t.index ["dossier_id"], name: "index_verifications_on_dossier_id"
+    t.index ["participant_id"], name: "index_verifications_on_participant_id"
     t.index ["token"], name: "index_verifications_on_token", unique: true
   end
 
@@ -126,5 +144,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_132023) do
   add_foreign_key "dossiers", "people", column: "company_contact_id"
   add_foreign_key "dossiers", "people", column: "primary_expert_id"
   add_foreign_key "dossiers", "people", column: "secondary_expert_id"
+  add_foreign_key "participants", "conferences"
   add_foreign_key "verifications", "dossiers"
+  add_foreign_key "verifications", "participants"
 end
