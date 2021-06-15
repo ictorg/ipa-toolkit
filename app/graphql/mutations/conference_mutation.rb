@@ -3,6 +3,7 @@
 module Mutations
   class ConferenceMutationType < Types::BaseObject
     field :createConference, mutation: Conference::CreateConferenceMutation
+    field :updateConference, mutation: Conference::UpdateConferenceMutation
   end
 
   class ConferenceMutation < BaseMutation

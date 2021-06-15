@@ -5,8 +5,8 @@ module Types
     class ConferenceInputType < Types::BaseInputObject
       argument :id, Int, required: false
       argument :name, String, required: true
-      argument :password, String, required: true
-      argument :participants, [ParticipantInputType], required: true
+      argument :password, String, required: false
+      argument :participants, [ParticipantInputType], required: false
     end
   end
 end
