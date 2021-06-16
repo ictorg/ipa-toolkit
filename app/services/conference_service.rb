@@ -17,9 +17,7 @@ class ConferenceService < ApplicationService
       end
     end
     current_conference.assign_attributes(parsed_conference)
-
     current_conference.save!
-
     current_conference.as_json(include: :participants)
   end
 end

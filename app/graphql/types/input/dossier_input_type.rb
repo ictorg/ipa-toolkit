@@ -9,6 +9,7 @@ module Types
       argument :primary_expert, PersonInputType, required: false
       argument :secondary_expert, PersonInputType, required: false
       argument :company_contact, PersonInputType, required: false
+      argument :conference_id, Int, required: true
       argument :company_points_a, String, required: false
       argument :company_points_b, String, required: false
       argument :company_mark_a, String, required: false

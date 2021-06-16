@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_070434) do
+ActiveRecord::Schema.define(version: 2021_06_16_124320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,9 +77,11 @@ ActiveRecord::Schema.define(version: 2021_06_16_070434) do
     t.string "submitted_mark"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "conference_id"
     t.index ["affiliation_id"], name: "index_dossiers_on_affiliation_id"
     t.index ["candidate_id"], name: "index_dossiers_on_candidate_id"
     t.index ["company_contact_id"], name: "index_dossiers_on_company_contact_id"
+    t.index ["conference_id"], name: "index_dossiers_on_conference_id"
     t.index ["primary_expert_id"], name: "index_dossiers_on_primary_expert_id"
     t.index ["secondary_expert_id"], name: "index_dossiers_on_secondary_expert_id"
   end
@@ -141,6 +143,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_070434) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dossiers", "affiliations"
+  add_foreign_key "dossiers", "conferences"
   add_foreign_key "dossiers", "people", column: "candidate_id"
   add_foreign_key "dossiers", "people", column: "company_contact_id"
   add_foreign_key "dossiers", "people", column: "primary_expert_id"
