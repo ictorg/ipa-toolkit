@@ -8,11 +8,12 @@ module Mutations
       argument :conference, Types::Input::ConferenceInputType, required: true
 
       def resolve(conference:)
-        new_conference = ::Conference.new(conference.to_h)
-        new_conference.save!
+        created_conference = ConferenceService.new(
+          conference
+        ).save
 
         {
-          conference: new_conference
+          conference: created_conference
         }
       end
     end

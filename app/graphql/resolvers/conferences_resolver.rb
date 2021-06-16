@@ -7,7 +7,7 @@ module Resolvers
     argument :id, Integer, required: false
 
     def resolve(id: nil)
-      return [Conference.find(id)] if id
+      return [Conference.eager_load(:participants).find(id)] if id
 
       Conference.all
     end

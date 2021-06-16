@@ -5,12 +5,12 @@ module Mutations
     class UpdateConferenceMutation < BaseMutation
       field :conference, Types::Entity::ConferenceType, null: false
 
-      argument :id, Integer, required: true
       argument :conference, Types::Input::ConferenceInputType, required: true
 
-      def resolve(id:, conference:)
-        updated_conference = ::Conference.find(id)
-        updated_conference.update!(conference.to_h)
+      def resolve(conference:)
+        updated_conference = ConferenceService.new(
+          conference
+        ).save
 
         {
           conference: updated_conference
