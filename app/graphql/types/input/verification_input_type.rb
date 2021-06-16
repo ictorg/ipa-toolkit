@@ -4,8 +4,8 @@ module Types
   module Input
     class VerificationInputType < Types::BaseInputObject
       argument :id, Int, required: false
-      argument :email, String, required: true
       argument :dossier_id, Int, required: true
+      argument :participant_id, Int, required: true
     end
   end
 end

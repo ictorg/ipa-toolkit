@@ -9,6 +9,7 @@ module Types
       field :primary_expert, PersonType, null: true
       field :secondary_expert, PersonType, null: true
       field :company_contact, PersonType, null: true
+      field :conference, ConferenceType, null: false
       field :company_points_a, String, null: true
       field :company_points_b, String, null: true
       field :company_mark_a, String, null: true

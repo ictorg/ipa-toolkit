@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConferenceService < ApplicationService
   CONFERENCE_MAPPINGS = {
     participants: :participants_attributes
