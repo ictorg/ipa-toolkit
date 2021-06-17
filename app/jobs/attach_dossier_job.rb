@@ -8,7 +8,7 @@ class AttachDossierJob < ApplicationJob
 
     dossier_file = Down.download(
       dossier_path,
-      read_timeout: 180,
+      read_timeout: 300,
       headers: {
         'Cookie' => "#{Settings.pkorg.cookies.session_token}=#{session_token}",
         'User-Agent' => user_agent

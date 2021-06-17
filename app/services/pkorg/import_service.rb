@@ -20,7 +20,7 @@ module Pkorg
     end
 
     def import
-      @dossiers.each do |d|
+      @dossiers.each_with_index do |d, i|
         dossier_path = d[:dossier_path]
         parsed_dossier = d.to_h.except(:dossier_path).transform_keys { |key| DOSSIER_MAPPINGS[key] || key }
         dossier = Dossier.find_or_initialize_by(candidate_id: parsed_dossier[:candidate_attributes][:id])
@@ -32,7 +32,9 @@ module Pkorg
         dossier.assign_attributes(parsed_dossier)
         dossier.save!
 
-        AttachDossierJob.perform_later(dossier.id, dossier_path, @session_token, @user_agent)
+        AttachDossierJob.set(wait: (i * 60 + rand(60)).seconds).perform_later(
+          dossier.id, dossier_path, @session_token, @user_agent
+        )
       end
 
       {
