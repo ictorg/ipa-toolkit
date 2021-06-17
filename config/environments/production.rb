@@ -125,4 +125,6 @@ Rails.application.configure do
     enable_starttls_auto: true,
     ssl: true
   }
+
+  routes.default_url_options[:host] = ENV['DEFAULT_HOST']
 end

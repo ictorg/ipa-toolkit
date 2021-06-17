@@ -24,6 +24,7 @@ module Types
       field :final_mark, String, null: true
       field :submitted_mark, String, null: true
       field :dossier_path, String, null: true
+      field :dossier_download_path, String, null: true
     end
   end
 end

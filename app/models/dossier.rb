@@ -13,4 +13,11 @@ class Dossier < ApplicationRecord
   has_one_attached :dossier_file
 
   accepts_nested_attributes_for :affiliation, :candidate, :primary_expert, :secondary_expert, :company_contact
+
+  def dossier_download_path
+    if dossier_file.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(dossier_file,
+                                                          disposition: 'attachment')
+    end
+  end
 end

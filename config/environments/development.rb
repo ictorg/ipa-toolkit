@@ -73,6 +73,7 @@ Rails.application.configure do
     address: 'ipa-toolkit-backend-mailcatcher',
     port: 25
   }
-
+  
+  routes.default_url_options[:host] = ENV['DEFAULT_HOST']
   config.hosts << 'ipa-toolkit-backend'
 end
