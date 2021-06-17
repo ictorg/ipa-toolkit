@@ -1,5 +1,5 @@
 <p>
-  Lieber Experte
+  Liebe/r Experte/in
 </p>
 <p>
   Bitte kontrolliere die IPA von <%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %>. Das Dossier kann hier heruntergeladen werden:
@@ -7,12 +7,7 @@
   <%= rails_blob_url(@dossier.dossier_file, disposition: "attachment") %>
 </p>
 <p>
-  Nachdem Abschluss der Kontrolle ist diese im folgenden Formular zu bestätigen:
-  <br />
-  <%= "https://#{ENV.fetch('API_ORIGIN', 'localhost:3000')}/verification/result/#{@verification.token}"%>
-</p>
-<p>
   Vielen Dank und freundliche Grüsse
-
+  <br />
   dein IPA Toolkit
 </p>
