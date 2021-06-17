@@ -40,5 +40,7 @@ module Workspace
     config.api_only = true
 
     config.active_storage.routes_prefix = '/storage'
+
+    config.version = '0.3.2'
   end
 end
