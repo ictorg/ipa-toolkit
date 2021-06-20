@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_135340) do
+ActiveRecord::Schema.define(version: 2021_06_20_144642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,9 @@ ActiveRecord::Schema.define(version: 2021_06_16_135340) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "token", null: false
     t.bigint "participant_id"
+    t.boolean "change_grading"
+    t.string "comment"
+    t.datetime "verified_at", precision: 6
     t.index ["dossier_id"], name: "index_verifications_on_dossier_id"
     t.index ["participant_id"], name: "index_verifications_on_participant_id"
     t.index ["token"], name: "index_verifications_on_token", unique: true

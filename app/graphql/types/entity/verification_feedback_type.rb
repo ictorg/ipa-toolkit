@@ -2,10 +2,11 @@
 
 module Types
   module Entity
-    class VerificationResultType < Types::BaseObject
+    class VerificationFeedbackType < Types::BaseObject
       field :id, Integer, null: false
-      field :email, String, null: false
       field :dossier, DossierType, null: false
+      field :change_grading, Boolean, null: true
+      field :comment, String, null: true
     end
   end
 end
