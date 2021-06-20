@@ -1,13 +1,21 @@
 <p>
-  Liebe/r Experte/in
+  Liebe Expertin oder lieber Experte
 </p>
 <p>
-  Bitte kontrolliere die IPA von <%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %>. Das Dossier kann hier heruntergeladen werden:
-  <br />
-  <%= rails_blob_url(@dossier.dossier_file, disposition: "attachment") %>
+  Es freut uns, dass du bei der Notenkonferenz mit dabei bist. Die unterhalb aufgelisteten Dossiers wurden dir zur Kontrolle zugewiesen. Bitte lade das Dossier mit Hilfe des bekanntgegebenen Passworts herunter. Verifiziere, ob die Bewertung deine Ansicht nach gerechtfertig ist und gebe mit dem zweiten Link eine Rückmeldung.
 </p>
 <p>
-  Vielen Dank und freundliche Grüsse
-  <br />
+  IPA von <%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %>:
+  <ul>
+    <li>
+      <a href="<%= "#{@base_path}/verification/download/#{@verification.token}"%>">Dossier herunterladen</a>
+    </li>
+    <li>
+      <a href="<%= "#{@base_path}/verification/result/#{@verification.token}"%>">Feedback geben</a>
+    </li>
+  </ul>
+</p>
+<p>
+  Vielen Dank und freundliche Grüsse<br />
   dein IPA Toolkit
 </p>
