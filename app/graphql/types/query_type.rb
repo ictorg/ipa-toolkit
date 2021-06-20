@@ -12,6 +12,7 @@ module Types
     field :users, resolver: Resolvers::UsersResolver
     field :dossiers, resolver: Resolvers::DossiersResolver
     field :conferences, resolver: Resolvers::ConferencesResolver
+    field :verifications, resolver: Resolvers::VerificationResolver
     field :system, resolver: Resolvers::SystemResolver
   end
 end
