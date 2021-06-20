@@ -5,7 +5,7 @@
   Es freut uns, dass du bei der Notenkonferenz mit dabei bist. Die unterhalb aufgelisteten Dossiers wurden dir zur Kontrolle zugewiesen. Bitte lade das Dossier mit Hilfe des bekanntgegebenen Passworts herunter. Verifiziere, ob die Bewertung deine Ansicht nach gerechtfertig ist und gebe mit dem zweiten Link eine Rückmeldung.
 </p>
 <p>
-  IPA von <%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %>:
+  IPA von <strong><%= @dossier.candidate.forename %> <%= @dossier.candidate.surname %></strong> mit Note <strong><%= @dossier.submitted_mark %></strong>:
   <ul>
     <li>
       <a href="<%= "#{@base_path}/verification/download/#{@verification.token}"%>">Dossier herunterladen</a>
