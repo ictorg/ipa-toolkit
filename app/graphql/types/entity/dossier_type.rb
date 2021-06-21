@@ -25,6 +25,7 @@ module Types
       field :submitted_mark, String, null: true
       field :dossier_path, String, null: true
       field :dossier_download_path, String, null: true
+      field :verifications, [VerificationType], null: true
     end
   end
 end
