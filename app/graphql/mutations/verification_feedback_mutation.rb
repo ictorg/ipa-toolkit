@@ -15,6 +15,7 @@ module Mutations
 
       verification.change_grading = change_grading
       verification.comment = comment
+      verification.verified_at = DateTime.now
       verification.save!
       
       {

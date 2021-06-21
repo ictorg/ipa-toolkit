@@ -8,6 +8,7 @@ module Types
       field :participant, ParticipantType, null: false
       field :change_grading, Boolean, null: true
       field :comment, String, null: true
+      field :verified_at, String, null: true
     end
   end
 end
