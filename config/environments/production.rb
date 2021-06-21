@@ -127,4 +127,7 @@ Rails.application.configure do
   }
 
   routes.default_url_options[:host] = ENV['DEFAULT_HOST']
+
+  # Compress responses
+  config.middleware.use Rack::Deflater
 end
