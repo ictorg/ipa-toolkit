@@ -20,4 +20,15 @@ class Dossier < ApplicationRecord
                                                           disposition: 'attachment')
     end
   end
+
+  def tags
+    tagList = []
+
+    tagList << (verifications.where.not(verified_at: nil).exists? ? 'verified' : 'not-verified')
+    tagList << 'insufficient' if submitted_mark.to_f < 4
+    tagList << 'just-enough' if submitted_mark.to_f >= 4 && submitted_mark.to_f <= 4.3
+    tagList << 'very-good' if submitted_mark.to_f > 5.5
+
+    tagList
+  end
 end

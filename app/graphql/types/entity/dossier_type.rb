@@ -23,6 +23,7 @@ module Types
       field :mark_deduction, Boolean, null: true
       field :final_mark, String, null: true
       field :submitted_mark, String, null: true
+      field :tags, [String], null: false
       field :dossier_path, String, null: true
       field :dossier_download_path, String, null: true
       field :verifications, [VerificationType], null: true
