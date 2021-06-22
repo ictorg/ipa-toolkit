@@ -3,19 +3,19 @@
 module Mutations
   module Verification
     class CreateVerificationMutation < BaseMutation
-      field :verification, Types::Entity::VerificationType, null: false
+      field :verifications, [Types::Entity::VerificationType], null: false
 
-      argument :verification, Types::Input::VerificationInputType, required: true
+      argument :verifications, [Types::Input::VerificationInputType], required: true
 
-      def resolve(verification:)
-        new_verification = ::Verification.new(verification.to_h)
-        new_verification.token = SecureRandom.hex(32)
-        new_verification.save!
+      def resolve(verifications:)
+        new_verifications = ::Verification.create!(verifications.map(&:to_h))
 
-        VerificationMailer.with(verification: new_verification).invite.deliver_now
+        new_verifications.group_by(&:participant_id).each_value do |v|
+          VerificationMailer.with(verifications: v).invite.deliver_now
+        end
 
         {
-          verification: new_verification
+          verifications: new_verifications
         }
       end
     end

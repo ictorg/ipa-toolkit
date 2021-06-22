@@ -11,7 +11,7 @@ module Resolvers
       return [Dossier.find(id)] if id
       return Dossier.find(ids) if ids
 
-      Dossier.all
+      Dossier.eager_load(:affiliation, :candidate, :conference).all
     end
   end
 end
