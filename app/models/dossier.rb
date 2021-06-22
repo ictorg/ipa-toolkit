@@ -25,9 +25,13 @@ class Dossier < ApplicationRecord
     tagList = []
 
     tagList << (verifications.where.not(verified_at: nil).exists? ? 'verified' : 'not-verified')
-    tagList << 'insufficient' if submitted_mark.to_f < 4
-    tagList << 'just-enough' if submitted_mark.to_f >= 4 && submitted_mark.to_f <= 4.3
-    tagList << 'very-good' if submitted_mark.to_f > 5.5
+    if submitted_mark.blank?
+      tagList << 'no-final-mark'
+    else
+      tagList << 'insufficient' if submitted_mark.to_f < 4
+      tagList << 'just-enough' if submitted_mark.to_f >= 4 && submitted_mark.to_f <= 4.3
+      tagList << 'very-good' if submitted_mark.to_f > 5.5
+    end
 
     tagList
   end
