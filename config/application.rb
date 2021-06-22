@@ -41,6 +41,6 @@ module Workspace
 
     config.active_storage.routes_prefix = '/storage'
 
-    config.version = '0.9.1'
+    config.version = '1.0.0'
   end
 end
