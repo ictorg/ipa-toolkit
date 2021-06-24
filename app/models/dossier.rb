@@ -25,6 +25,8 @@ class Dossier < ApplicationRecord
     tagList = []
 
     tagList << (verifications.where.not(verified_at: nil).exists? ? 'verified' : 'not-verified')
+    tagList << 'no-invitation' unless verifications.exists?
+    tagList << 'verified-with-change' if verifications.where(change_grading: true).where.not(verified_at: nil).exists?
     if submitted_mark.blank?
       tagList << 'no-final-mark'
     else
