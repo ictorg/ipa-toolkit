@@ -1,5 +1,5 @@
 # base stage
-FROM ruby:3.0.0-alpine AS base
+FROM ruby:3.1.2-alpine AS base
 RUN apk add --no-cache --update \
   postgresql-dev \
   tzdata \
@@ -41,7 +41,7 @@ USER app
 WORKDIR /app
 COPY --chown=app --from=build /app /app
 
-RUN gem install bundler:2.2.3
+RUN gem install bundler:2.3.3
 COPY --chown=app --from=build /usr/local/bundle /usr/local/bundle
 RUN bundle config --local without 'development test' && \
   bundle install -j4 --retry 3 && \
