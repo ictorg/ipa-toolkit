@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
+require_relative '../version'
 
 require 'rails'
 # Pick the frameworks you want:
@@ -40,7 +41,5 @@ module Workspace
     config.api_only = true
 
     config.active_storage.routes_prefix = '/storage'
-
-    config.version = '1.0.0'
   end
 end

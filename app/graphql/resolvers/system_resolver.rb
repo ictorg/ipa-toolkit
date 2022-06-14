@@ -8,7 +8,7 @@ module Resolvers
 
     def resolve
       {
-        version: Rails.application.config.version
+        version: ::IPAToolkitBackend::VERSION
       }
     end
   end
