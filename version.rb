@@ -1,3 +1,3 @@
 module IPAToolkitBackend
-  VERSION = "1.1.2".freeze
+  VERSION = "1.0.8".freeze
 end

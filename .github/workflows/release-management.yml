@@ -14,6 +14,7 @@ jobs:
         with:
           release-type: ruby
           package-name: ipa-toolkit-backend
+          version-file: "version.rb"
 
       - name: Check out the repo
         uses: actions/checkout@v3
