@@ -56,3 +56,7 @@ gem 'rubocop-rails', '~> 2.10'
 gem 'rubocop-performance', '~> 1.11'
 
 gem "net-smtp", "~> 0.3.1"
+
+gem "graphql-pagination", "~> 1.2"
+
+gem "kaminari-activerecord", "~> 1.2"
