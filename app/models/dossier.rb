@@ -14,6 +14,31 @@ class Dossier < ApplicationRecord
 
   accepts_nested_attributes_for :affiliation, :candidate, :primary_expert, :secondary_expert, :company_contact
 
+  scope :by_tenant_name, ->(tenant_name) { where(affiliations: { tenant_name: tenant_name }) }
+  scope :by_mark_deduction, ->(mark_deduction) { where(mark_deduction: mark_deduction) }
+  scope :by_tags, ->(tags) do 
+    case tags
+    when 'verified'
+      next joins(:verifications).where.not(verifications: { verified_at: nil })
+    when 'not-verified'
+      next where(verifications: { verified_at: nil }).left_outer_joins(:verifications)
+    when 'no-invitation'
+      next where(verifications: { id: nil }).left_outer_joins(:verifications)
+    when 'verified-with-change'
+      next joins(:verifications).where(verifications: { change_grading: true }).where.not(verifications: { verified_at: nil })
+    when 'no-final-mark'
+      next where(submitted_mark: nil)
+    when 'insufficient'
+      next where(Dossier.arel_table[:submitted_mark].lt(4))
+    when 'just-enough'
+      next where(Dossier.arel_table[:submitted_mark].gteq(4)).where(Dossier.arel_table[:submitted_mark].lteq(4.3))
+    when 'very-good'
+      next where(Dossier.arel_table[:submitted_mark].gt(5.5))
+    end
+    
+    none
+  end
+
   def dossier_download_path
     if dossier_file.attached?
       Rails.application.routes.url_helpers.rails_blob_url(dossier_file,

@@ -7,12 +7,20 @@ module Resolvers
     argument :id, Integer, required: false
     argument :ids, [Integer], required: false
     argument :page, Integer, required: false
+    argument :filter, Types::Input::DossierFilterInputType, required: false
 
-    def resolve(id: nil, ids: nil, page: nil)
+    def resolve(id: nil, ids: nil, page: nil, filter: nil)
       return [Dossier.find(id)] if id
       return Dossier.find(ids) if ids
 
-      Dossier.eager_load(:affiliation, :candidate, :conference).page(page)
+      dossiers = Dossier.eager_load(:affiliation, :candidate, :conference).page(page)
+      if (filter)
+        dossiers = dossiers.by_tenant_name(filter.tenant_name) if filter.tenant_name.present?
+        dossiers = dossiers.by_mark_deduction(filter.mark_deduction) unless filter.mark_deduction.nil?
+        dossiers = dossiers.by_tags(filter.tags) if filter.tags.present?
+      end
+
+      dossiers
     end
   end
 end
