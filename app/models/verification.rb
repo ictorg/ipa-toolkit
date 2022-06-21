@@ -2,7 +2,7 @@
 
 class Verification < ApplicationRecord
   belongs_to :dossier
-  belongs_to :participant
+  belongs_to :participant, counter_cache: :verifications_count
 
   before_create :set_token
 
