@@ -27,7 +27,7 @@ module Pkorg
         dossier.affiliation = Affiliation.find_or_create_by(d[:affiliation].to_h)
         dossier.candidate = Person.find_or_create_by(d[:candidate].to_h)
         dossier.primary_expert = Person.find_or_create_by(d[:primary_expert].to_h)
-        dossier.secondary_expert = Person.find_or_create_by(d[:secondary_expert].to_h)
+        dossier.secondary_expert = d[:secondary_expert] ? Person.find_or_create_by(d[:secondary_expert].to_h) : nil
         dossier.company_contact = Person.find_or_create_by(d[:company_contact].to_h)
         dossier.assign_attributes(parsed_dossier)
         dossier.save!

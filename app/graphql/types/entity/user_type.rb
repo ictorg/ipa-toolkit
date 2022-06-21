@@ -7,6 +7,8 @@ module Types
       field :email, String, null: false
       field :name, String, null: true
       field :nickname, String, null: true
+      field :superuser, Boolean, null: true
+      field :permissions, [PermissionType], null: true
     end
   end
 end

@@ -11,6 +11,7 @@ module Types
     field :pkorg, resolver: Resolvers::PkorgResolver
     field :users, resolver: Resolvers::UsersResolver
     field :dossiers, resolver: Resolvers::DossiersResolver
+    field :participants, resolver: Resolvers::ParticipantResolver
     field :conferences, resolver: Resolvers::ConferencesResolver
     field :verifications, resolver: Resolvers::VerificationResolver
     field :system, resolver: Resolvers::SystemResolver

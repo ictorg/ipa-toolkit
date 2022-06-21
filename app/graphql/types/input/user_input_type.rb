@@ -9,6 +9,8 @@ module Types
       argument :password, String, required: false
       argument :password_confirmation, String, required: false
       argument :nickname, String, required: false
+      argument :superuser, Boolean, required: false
+      argument :permissions, [PermissionInputType], required: false
     end
   end
 end

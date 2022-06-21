@@ -7,6 +7,7 @@ module Types
       field :forename, String, null: false
       field :surname, String, null: false
       field :email, String, null: false
+      field :verifications_count, Integer, null: true
     end
   end
 end
