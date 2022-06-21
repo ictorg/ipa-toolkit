@@ -15,5 +15,6 @@ module Types
     field :conferences, resolver: Resolvers::ConferencesResolver
     field :verifications, resolver: Resolvers::VerificationResolver
     field :system, resolver: Resolvers::SystemResolver
+    field :unique_tenant_names, resolver: Resolvers::UniqueTenantNameResolver
   end
 end
