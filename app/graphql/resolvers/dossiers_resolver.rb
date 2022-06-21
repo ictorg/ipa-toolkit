@@ -13,7 +13,7 @@ module Resolvers
       return [Dossier.find(id)] if id
       return Dossier.find(ids) if ids
 
-      dossiers = Dossier.eager_load(:affiliation, :candidate, :conference)
+      dossiers = Dossier.eager_load(:affiliation, :candidate, :conference).order(:id)
 
       dossiers = dossiers.page(page) if page
 
