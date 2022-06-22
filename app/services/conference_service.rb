@@ -17,7 +17,7 @@ class ConferenceService < ApplicationService
     current_conference.assign_attributes(parsed_conference)
     unless parsed_conference[:participants_attributes].nil?
       current_conference.participants = parsed_conference[:participants_attributes].map do |p|
-        Participant.find_or_create_by(p)
+        Participant.find_or_create_by(p.merge({conference_id: parsed_conference[:id]}))
       end
     end
     current_conference.save!
