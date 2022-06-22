@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/ictorg/ipa-toolkit-backend/compare/v1.0.9...v1.1.0) (2022-06-22)
+
+
+### Features
+
+* add user permissions ([7536608](https://github.com/ictorg/ipa-toolkit-backend/commit/75366083ca2c6a9091338d5571c1f5cbaac0af94))
+* allow same participant in multiple conferences ([0232be5](https://github.com/ictorg/ipa-toolkit-backend/commit/0232be530f1854932100b2704a7e1d652450aa69))
+* expose participants on api ([fc675ff](https://github.com/ictorg/ipa-toolkit-backend/commit/fc675ff03a32e4ae62fec7bfe71db234d3907323))
+* implement filtering for dossiers ([a63e6ed](https://github.com/ictorg/ipa-toolkit-backend/commit/a63e6ed231f4522fb9e699342e4fda521d03bdc6))
+* make dossier pagination optional ([767ca54](https://github.com/ictorg/ipa-toolkit-backend/commit/767ca54028891167b3c570bb8e360514ce4d09ca))
+* order filtered dossiers by id ([79a1ab5](https://github.com/ictorg/ipa-toolkit-backend/commit/79a1ab5a6a3467ad10e8c0b5b1bb0afa16c88887))
+
 ## [1.0.9](https://github.com/ictorg/ipa-toolkit-backend/compare/v1.0.8...v1.0.9) (2022-06-21)
 
 
