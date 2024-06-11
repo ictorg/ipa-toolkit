@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/ictorg/ipa-toolkit-backend:latest
+          tags: ghcr.io/swissictedu/ipa-toolkit-backend:latest
           cache-from: type=registry,ref=ghcr.io/ictorg/ipa-toolkit-backend:latest
           cache-to: type=inline
         if: ${{ steps.release.outputs.release_created }}
