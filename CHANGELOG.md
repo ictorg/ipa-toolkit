@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/swissictedu/ipa-toolkit-backend/compare/v1.3.0...v1.3.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* email config ([f5b1cfe](https://github.com/swissictedu/ipa-toolkit-backend/commit/f5b1cfe596db3f630286b71699edb9c3645b5394))
+
 ## [1.3.0](https://github.com/swissictedu/ipa-toolkit-backend/compare/v1.2.0...v1.3.0) (2024-06-11)
 
 
