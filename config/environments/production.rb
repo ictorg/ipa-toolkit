@@ -122,7 +122,6 @@ Rails.application.configure do
     authentication: :plain,
     user_name: ENV['SYSTEM_EMAIL_ADDRESS'],
     password: ENV['SYSTEM_EMAIL_PASSWORD'],
-    tls: true
   }
 
   routes.default_url_options[:host] = ENV['DEFAULT_HOST']
