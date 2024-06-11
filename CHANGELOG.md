@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/swissictedu/ipa-toolkit-backend/compare/v1.2.0...v1.3.0) (2024-06-11)
+
+
+### Features
+
+* fix build ([abacb45](https://github.com/swissictedu/ipa-toolkit-backend/commit/abacb452a8228e547a9472b4a6bbb1c0d96bb709))
+
 ## [1.2.0](https://github.com/swissictedu/ipa-toolkit-backend/compare/v1.1.0...v1.2.0) (2024-06-11)
 
 
