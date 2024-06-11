@@ -118,12 +118,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: ENV['SYSTEM_EMAIL_SERVER'],
     domain: ENV['SYSTEM_EMAIL_DOMAIN'],
-    port: 465,
-    authentication: :login,
+    port: ENV['SYSTEM_EMAIL_PORT'],
+    authentication: :plain,
     user_name: ENV['SYSTEM_EMAIL_ADDRESS'],
     password: ENV['SYSTEM_EMAIL_PASSWORD'],
-    enable_starttls_auto: true,
-    ssl: true
+    tls: true
   }
 
   routes.default_url_options[:host] = ENV['DEFAULT_HOST']
