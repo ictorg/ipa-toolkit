@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/swissictedu/ipa-toolkit-backend/compare/v1.1.0...v1.2.0) (2024-06-11)
+
+
+### Features
+
+* make email port configurable ([20eac6a](https://github.com/swissictedu/ipa-toolkit-backend/commit/20eac6ab71a101e62b74bc5993fbd7d80f938ee0))
+
 ## [1.1.0](https://github.com/ictorg/ipa-toolkit-backend/compare/v1.0.9...v1.1.0) (2022-06-22)
 
 
